@@ -19,27 +19,6 @@ resource "aws_subnet" "terraform_public_subnet" {
     Name = "terraform Public Subnet"
   }
 }
-vider "aws" {
-region = "ap-south-1"
-}
-
-resource "aws_vpc" "terraform_vpc" {
-  cidr_block = "10.0.0.0/16"
-
-  tags = {
-    Name = "terraform_vpc"
-  }
-}
-
-resource "aws_subnet" "terraform_public_subnet" {
-  vpc_id            = aws_vpc.terraform_vpc.id
-  cidr_block        = "10.0.1.0/24"
-  availability_zone = "ap-south-1a"
-
-  tags = {
-    Name = "terraform Public Subnet"
-  }
-}
 
 resource "aws_subnet" "terraform_private_subnet" {
   vpc_id            = aws_vpc.terraform_vpc.id
